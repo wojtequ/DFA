@@ -1,17 +1,19 @@
-import { DFADefinition } from "./types";
+import { AlphabetElement, DFADefinition, State } from "./types";
 
 export class StateMachine {
-    private alphabet: string[];
-    private startState: string;
-    private acceptStates: string[];
-    private transitions: { [state: string]: { [input: string]: string } };
-    private currentState: string;
+    private alphabet: AlphabetElement[];
+    private startState: State;
+    private acceptStates: State[];
+    private transitions: {
+        [state: State]: { [input: AlphabetElement]: State };
+    };
+    private currentState: State;
 
-    constructor(config: DFADefinition) {
-        this.alphabet = config.alphabet;
-        this.startState = config.startState;
-        this.acceptStates = config.acceptStates;
-        this.transitions = config.transitions;
+    constructor(definition: DFADefinition) {
+        this.alphabet = definition.alphabet;
+        this.startState = definition.startState;
+        this.acceptStates = definition.acceptStates;
+        this.transitions = definition.transitions;
         this.currentState = this.startState;
     }
 
