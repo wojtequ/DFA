@@ -1,0 +1,28 @@
+{
+    "_comment": "DFA definition for an automaton: Accepts `a`, `b` and `c` but the first and the last character must be different",
+
+    "exampleRightInput": [
+        "abac",
+        "ab",
+        "ac",
+        "ba",
+        "bc",
+        "baacaabc",
+        "ababcccc"
+    ],
+    "exampleWrongInput": ["aba", "aa", "a", "b", "bb", "bbaacb"],
+
+    "states": ["s1", "s2", "s3", "s4", "s5", "s6", "s7"],
+    "alphabet": ["a", "b", "c"],
+    "startState": "s1",
+    "acceptStates": ["s3", "s5", "s7"],
+    "transitions": {
+        "s1": { "a": "s2", "b": "s4", "c": "s6" },
+        "s2": { "a": "s2", "b": "s3", "c": "s3" },
+        "s3": { "a": "s2", "b": "s3", "c": "s3" },
+        "s4": { "a": "s5", "b": "s4", "c": "s5" },
+        "s5": { "a": "s5", "b": "s4", "c": "s5" },
+        "s6": { "a": "s7", "b": "s7", "c": "s6" },
+        "s7": { "a": "s7", "b": "s7", "c": "s6" }
+    }
+}
