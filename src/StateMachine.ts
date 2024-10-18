@@ -1,10 +1,10 @@
 import { AlphabetElement, DFADefinition, State } from "./types";
 
 export class StateMachine {
-    private alphabet: AlphabetElement[];
-    private startState: State;
-    private acceptStates: State[];
-    private transitions: {
+    private readonly alphabet: AlphabetElement[];
+    private readonly startState: State;
+    private readonly acceptStates: State[];
+    private readonly transitions: {
         [state: State]: { [input: AlphabetElement]: State };
     };
     private currentState: State;
@@ -42,9 +42,3 @@ export class StateMachine {
         return this.acceptStates.includes(currentState);
     }
 }
-
-// if (dfa.processInput(inputString)) {
-//     console.log(`The string "${inputString}" is accepted by the DFA.`);
-// } else {
-//     console.log(`The string "${inputString}" is rejected by the DFA.`);
-// }
