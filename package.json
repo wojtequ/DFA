@@ -2,7 +2,7 @@
     "name": "dfa",
     "version": "1.0.0",
     "description": "DFA implementation in TypeScript",
-    "main": "index.js",
+    "main": "index.ts",
     "scripts": {
         "build": "rimraf ./dist && tsc",
         "start": "node dist/index.js",
